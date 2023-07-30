@@ -10,8 +10,6 @@ async function fetchMealsFromApi(url,value) {
   return meals;
 }
 
-
-
 // its show's all meals card in main acording to search input value
 function showMealList(){
   let inputValue = document.getElementById("my-search").value;
@@ -75,8 +73,6 @@ function showMealList(){
       document.getElementById("main").innerHTML = html;
   });
 }
-
-
 
 //its shows full meal details in main
 async function showMealDetails(id) {
@@ -152,11 +148,6 @@ async function showFavMealList() {
   document.getElementById("favourites-body").innerHTML=html;
 }
 
-
-
-
-
-
 //its adds and remove meals to favourites list
 function addRemoveToFavList(id) {
   let arr=JSON.parse(localStorage.getItem("favouritesList"));
@@ -178,69 +169,3 @@ function addRemoveToFavList(id) {
   showMealList();
   showFavMealList();
 }
-
-
-// // script.js
-// const searchInput = document.getElementById('searchInput');
-// const searchResults = document.getElementById('searchResults');
-// const favouriteList = document.getElementById('favouriteList');
-// const API_BASE_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
-
-// let favorites = [];
-
-// async function searchMeals(query) {
-//     const response = await fetch(API_BASE_URL + query);
-//     const data = await response.json();
-//     return data.meals;
-// }
-
-// function displaySearchResults(meals) {
-//     searchResults.innerHTML = '';
-
-//     if (!meals) {
-//         searchResults.innerHTML = '<p>No results found.</p>';
-//         return;
-//     }
-
-//     meals.forEach(meal => {
-//         const mealCard = document.createElement('div');
-//         mealCard.className = 'meal-card';
-
-//         const mealName = document.createElement('h3');
-//         mealName.textContent = meal.strMeal;
-
-//         const favoriteButton = document.createElement('button');
-//         favoriteButton.textContent = 'Add to Favourites';
-//         favoriteButton.addEventListener('click', () => addToFavorites(meal));
-
-//         mealCard.appendChild(mealName);
-//         mealCard.appendChild(favoriteButton);
-//         searchResults.appendChild(mealCard);
-//     });
-// }
-
-// function addToFavorites(meal) {
-//     if (!favorites.find(fav => fav.idMeal === meal.idMeal)) {
-//         favorites.push(meal);
-//         displayFavorites();
-//     }
-// }
-
-// function displayFavorites() {
-//     favouriteList.innerHTML = '';
-//     favorites.forEach(fav => {
-//         const favItem = document.createElement('li');
-//         favItem.textContent = fav.strMeal;
-//         favouriteList.appendChild(favItem);
-//     });
-// }
-
-// searchInput.addEventListener('input', async (e) => {
-//     const query = e.target.value.trim();
-//     if (query.length > 0) {
-//         const meals = await searchMeals(query);
-//         displaySearchResults(meals);
-//     } else {
-//         searchResults.innerHTML = '';
-//     }
-// });
